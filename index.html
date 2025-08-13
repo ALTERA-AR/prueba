@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+
+  <!--Foto-->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #boton-foto {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      z-index: 10;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Botón para capturar -->
+  <button id="boton-foto">.</button>
+
+
+  <a-scene mindar-image="imageTargetSrc:src/traks/targets.mind;  missTolerance: 15" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <a-asset-item id="Animacion0" src="src/model/animal/Medusa.glb"></a-asset-item>
+      <a-asset-item id="Animacion1" src="src/model/animal/Frog.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+<!-- puede ayudar al temblor-->
+   <a-entity mindar-image-target="targetIndex: 0">
+  <a-entity scale="0.7 0.7 0.7" rotation="0 0 0" position="0 0 0">
+    <a-gltf-model src="#Animacion2" animation-mixer></a-gltf-model>
+  </a-entity>
+</a-entity>
+
+    <a-entity mindar-image-target="targetIndex: 1">
+      <a-gltf-model rotation="0 0 0" position="1 1 0" scale="0.5 0.5 0.5" src="#Animacion6" animation-mixer>
+      </a-gltf-model>
+    </a-entity>
+
+ 
+</body>
+
+</html>
